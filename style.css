@@ -25,6 +25,16 @@ header {
     padding: 100px 20px;
 }
 
+header img {
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px auto;
+    border: 3px solid #2563eb;
+}
+
 header h1 {
     font-size: 4rem;
     margin-bottom: 10px;
