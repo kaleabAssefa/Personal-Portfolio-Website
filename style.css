@@ -1,5 +1,3 @@
-/* Global styling */
-
 * {
     margin: 0;
     padding: 0;
@@ -10,24 +8,51 @@ html {
     scroll-behavior: smooth;
 }
 
-/* header section */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #bfdbfe, transparent 35%),
+        radial-gradient(circle at bottom right, #93c5fd, transparent 35%),
+        #f8fafc;
+
+    color: #1e293b;
+    line-height: 1.6;
+}
+
 header {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
     text-align: center;
-    padding: 60px 20px;
+    padding: 100px 20px;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 4rem;
+    letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
 header p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
-/* Navigation Bar */
+/* Optional Profile Image */
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     background-color: #0f172a;
@@ -44,7 +69,7 @@ nav ul {
 }
 
 nav li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav a {
@@ -52,76 +77,112 @@ nav a {
     color: white;
     text-decoration: none;
     padding: 18px;
-    transition: 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
     color: #38bdf8;
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }
-/* Section Styling */
+
+/* =========================
+   SECTIONS
+========================= */
+
 section {
     max-width: 1200px;
-    margin: 50px auto;
-    padding: 30px;
+    margin: 40px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    animation: fadeUp 0.8s ease;
+}
+
+section,
+.project-card,
+article {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 section h2 {
     text-align: center;
     color: #1e3c72;
-    margin-bottom: 25px;
-    font-size: 2rem;
-}
-/* About Section Card */
-#about {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 35px;
+    font-size: 2.2rem;
+    position: relative;
 }
 
-/* Experience Cards */
+section h2::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #2563eb;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+/* =========================
+   EXPERIENCE CARDS
+========================= */
+
 article {
     background: white;
     padding: 25px;
     margin-bottom: 20px;
     border-left: 6px solid #2563eb;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
 }
 
 article:hover {
     transform: translateY(-5px);
-    transition: 0.3s;
 }
 
-/* Project Grid */
+/* =========================
+   PROJECTS
+========================= */
+
 .project-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
 
 .project-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    transition: 0.4s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
 }
 
 .project-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.08);
 }
 
 .project-card h3 {
     padding: 15px;
+    color: #1e3c72;
 }
 
 .project-card p {
@@ -132,17 +193,26 @@ article:hover {
     display: inline-block;
     margin: 0 15px 20px;
     padding: 10px 20px;
-    background: #2563eb;
-    color: white;
-    border-radius: 6px;
     text-decoration: none;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
 .project-card a:hover {
-    background: #1d4ed8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(37, 99, 235, 0.4);
 }
 
-/* Skills Section  */
+/* =========================
+   SKILLS
+========================= */
+
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -151,26 +221,28 @@ article:hover {
 }
 
 .skill-box {
-    background: #2563eb;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
     color: white;
-    padding: 12px 25px;
-    border-radius: 25px;
+    padding: 14px 28px;
+    border-radius: 30px;
     font-weight: bold;
-    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s ease;
 }
 
 .skill-box:hover {
-    background: #1e40af;
-    transform: scale(1.1);
+    transform: translateY(-5px);
 }
 
-/* Contact form */
-form {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* =========================
+   CONTACT FORM
+========================= */
 
+form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -179,7 +251,7 @@ form {
 input,
 textarea {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
     font-size: 1rem;
 }
@@ -189,49 +261,122 @@ textarea {
     min-height: 120px;
 }
 
+input:focus,
+textarea:focus {
+    outline: none;
+    border: 2px solid #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
 button {
-    background: #2563eb;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
     color: white;
     border: none;
     padding: 14px;
-    border-radius: 8px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #1d4ed8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(37, 99, 235, 0.4);
 }
 
-Footer
+/* =========================
+   FOOTER
+========================= */
+
 footer {
     background: #0f172a;
     color: white;
     text-align: center;
     padding: 25px;
     margin-top: 50px;
-} 
-
-/* body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    line-height: 1.6;
 }
 
-.project-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.project-card {
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    transition: 0.3s;
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
 }
 
-.project-card:hover {
-    transform: scale(1.05);
-} */
+::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        width: 140px;
+        height: 140px;
+    }
+}
